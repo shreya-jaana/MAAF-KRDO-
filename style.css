@@ -1,0 +1,2593 @@
+/* ==========================================================
+   FOR MY SARIB 💗
+   STYLE.CSS — PART 1
+   Foundation + Layout + Background System
+   Continue directly into Part 2 later.
+========================================================== */
+
+/* ==========================================================
+   GOOGLE FONT VARIABLES
+========================================================== */
+
+:root{
+
+    --bg-dark:#0c1020;
+    --bg-purple:#151129;
+
+    --pink:#ffb6c1;
+    --pink-soft:#ffd7e1;
+
+    --cyan:#00ffff;
+    --cyan-soft:#9fffff;
+
+    --lavender:#e6ccff;
+    --mint:#b5ead7;
+
+    --white:#ffffff;
+    --text-soft:#f5f5f5;
+
+    --shadow-pink:
+    0 0 12px rgba(255,182,193,.6),
+    0 0 25px rgba(255,182,193,.3);
+
+    --shadow-cyan:
+    0 0 12px rgba(0,255,255,.6),
+    0 0 25px rgba(0,255,255,.3);
+
+    --shadow-lavender:
+    0 0 12px rgba(230,204,255,.6),
+    0 0 25px rgba(230,204,255,.3);
+
+    --shadow-mint:
+    0 0 12px rgba(181,234,215,.6),
+    0 0 25px rgba(181,234,215,.3);
+
+    --transition:
+    .8s cubic-bezier(
+        .22,
+        1,
+        .36,
+        1
+    );
+
+    --vh:1vh;
+}
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+    scroll-behavior:smooth;
+}
+
+body{
+
+    width:100%;
+    height:100%;
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at top,
+        #241a4a,
+        #0c1020 70%
+    );
+
+    font-family:
+    "Poppins",
+    sans-serif;
+
+    color:white;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ==========================================================
+   MAIN WRAPPER
+========================================================== */
+
+.main-container{
+
+    width:100%;
+    height:100vh;
+    height:calc(var(--vh) * 100);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* ==========================================================
+   PHASE SYSTEM
+========================================================== */
+
+.phase{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+    scale(.98)
+    translateY(30px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease,
+    visibility .8s ease;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:25px;
+
+    overflow:hidden;
+}
+
+.phase.active{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:
+    scale(1)
+    translateY(0);
+
+    z-index:10;
+}
+
+/* ==========================================================
+   PHASE CONTENT
+========================================================== */
+
+.phase-content{
+
+    width:100%;
+    max-width:760px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    gap:18px;
+
+    position:relative;
+    z-index:5;
+}
+
+/* ==========================================================
+   PHASE BACKGROUNDS
+========================================================== */
+
+.phase-door{
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(0,255,255,.12),
+        transparent 45%
+    ),
+    radial-gradient(
+        circle at top,
+        rgba(180,120,255,.18),
+        transparent 55%
+    ),
+    #0b0e1d;
+}
+
+.phase-outfit-intro,
+.phase-outfit-fight,
+.phase-outfit-promise{
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(255,182,193,.15),
+        transparent 50%
+    ),
+    radial-gradient(
+        circle at top right,
+        rgba(230,204,255,.18),
+        transparent 55%
+    ),
+    #0b0e1d;
+}
+
+.phase-spaghetti-intro,
+.phase-spaghetti-story,
+.phase-spaghetti-side,
+.phase-spaghetti-promise{
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(0,255,255,.12),
+        transparent 50%
+    ),
+    radial-gradient(
+        circle at bottom,
+        rgba(255,182,193,.12),
+        transparent 60%
+    ),
+    #08131f;
+}
+
+.phase-doctor-intro,
+.phase-doctor-explain,
+.phase-doctor-feelings,
+.phase-final-heart{
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(181,234,215,.15),
+        transparent 55%
+    ),
+    radial-gradient(
+        circle at top,
+        rgba(255,255,255,.08),
+        transparent 60%
+    ),
+    #0c1020;
+}
+
+.phase-notes{
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(255,182,193,.12),
+        transparent 60%
+    ),
+    radial-gradient(
+        circle at bottom,
+        rgba(181,234,215,.12),
+        transparent 60%
+    ),
+    #0d1020;
+}
+
+.phase-meter{
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(255,182,193,.20),
+        transparent 60%
+    ),
+    radial-gradient(
+        circle at top,
+        rgba(0,255,255,.15),
+        transparent 60%
+    ),
+    #0d1020;
+}
+
+.phase-celebration{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffb6c1,
+        #ffd7e1,
+        #e6ccff,
+        #b5ead7
+    );
+
+    background-size:
+    400% 400%;
+
+    animation:
+    celebrationGradient 10s ease infinite;
+}
+
+/* ==========================================================
+   ANIMATED CELEBRATION GRADIENT
+========================================================== */
+
+@keyframes celebrationGradient{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* ==========================================================
+   PARTICLE CONTAINER
+========================================================== */
+
+#particle-container{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+.particle{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    animation:
+    floatParticle linear forwards;
+
+    user-select:none;
+}
+
+@keyframes floatParticle{
+
+    from{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    to{
+
+        transform:
+        translateY(-120vh)
+        rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+/* ==========================================================
+   CONFETTI CONTAINER
+========================================================== */
+
+#confetti-container{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:100;
+}
+
+.confetti{
+
+    position:absolute;
+
+    top:-30px;
+
+    animation:
+    confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+
+    from{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+    }
+
+    to{
+
+        transform:
+        translateY(120vh)
+        rotate(720deg);
+    }
+}
+
+/* ==========================================================
+   TRANSITION OVERLAY
+========================================================== */
+
+#transition-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(10px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:999;
+}
+
+#transition-overlay.active{
+
+    animation:
+    transitionFlash .8s ease;
+}
+
+@keyframes transitionFlash{
+
+    0%{
+        opacity:0;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+/* ==========================================================
+   END OF STYLE.CSS PART 1
+   PART 2 STARTS WITH:
+   - TYPOGRAPHY
+   - TITLES
+   - GIFS
+   - BUTTONS
+   - DOOR SCREEN
+========================================================== */
+/* ==========================================================
+   STYLE.CSS — PART 2
+   Typography + GIFs + Buttons + Door Screen
+   Continue directly below Part 1
+========================================================== */
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
+.main-title,
+.phase-title{
+
+    font-family:
+    "Dancing Script",
+    cursive;
+
+    font-weight:700;
+
+    color:var(--pink);
+
+    text-align:center;
+
+    text-shadow:
+    0 0 12px rgba(255,182,193,.8),
+    0 0 25px rgba(255,182,193,.5);
+
+    line-height:1.2;
+}
+
+.main-title{
+
+    font-size:
+    clamp(
+        2.6rem,
+        6vw,
+        4.8rem
+    );
+}
+
+.phase-title{
+
+    font-size:
+    clamp(
+        2rem,
+        5vw,
+        3.4rem
+    );
+}
+
+.main-subtitle{
+
+    max-width:600px;
+
+    color:var(--text-soft);
+
+    font-size:
+    clamp(
+        1rem,
+        2.4vw,
+        1.15rem
+    );
+
+    line-height:1.8;
+
+    opacity:.95;
+}
+
+/* ==========================================================
+   LETTER TEXT
+========================================================== */
+
+.letter-card p,
+.popup-card p,
+.solution-card p{
+
+    line-height:1.9;
+
+    font-size:
+    clamp(
+        .95rem,
+        2vw,
+        1.08rem
+    );
+}
+
+.line{
+
+    opacity:0;
+
+    transform:
+    translateY(15px);
+
+    transition:
+    all .6s ease;
+}
+
+.line.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+}
+
+/* ==========================================================
+   GIFS
+========================================================== */
+
+.gif-large{
+
+    width:min(
+        260px,
+        75vw
+    );
+
+    border-radius:22px;
+
+    object-fit:cover;
+
+    border:
+    2px solid rgba(
+        255,
+        255,
+        255,
+        .15
+    );
+
+    box-shadow:
+    var(--shadow-pink);
+}
+
+.gif-medium{
+
+    width:min(
+        200px,
+        65vw
+    );
+
+    border-radius:20px;
+
+    border:
+    2px solid rgba(
+        255,
+        255,
+        255,
+        .15
+    );
+
+    box-shadow:
+    var(--shadow-cyan);
+}
+
+.gif-small{
+
+    width:min(
+        150px,
+        50vw
+    );
+
+    border-radius:18px;
+
+    border:
+    2px solid rgba(
+        255,
+        255,
+        255,
+        .15
+    );
+
+    box-shadow:
+    var(--shadow-lavender);
+}
+
+.gif-large,
+.gif-medium,
+.gif-small{
+
+    animation:
+    gifFloat 4s ease-in-out infinite;
+}
+
+@keyframes gifFloat{
+
+    0%{
+
+        transform:
+        translateY(0);
+    }
+
+    50%{
+
+        transform:
+        translateY(-8px);
+    }
+
+    100%{
+
+        transform:
+        translateY(0);
+    }
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.glow-btn{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    padding:
+    14px 26px;
+
+    border-radius:999px;
+
+    color:white;
+
+    font-weight:600;
+
+    font-size:1rem;
+
+    font-family:
+    "Poppins",
+    sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--pink),
+        #ff8fb1
+    );
+
+    box-shadow:
+    var(--shadow-pink);
+
+    transition:
+    all .3s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-width:200px;
+}
+
+.glow-btn:hover{
+
+    transform:
+    translateY(-3px)
+    scale(1.03);
+}
+
+.glow-btn:active{
+
+    transform:
+    scale(.97);
+}
+
+.glow-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transform:
+    translateX(-120%);
+
+    transition:
+    .7s;
+}
+
+.glow-btn:hover::before{
+
+    transform:
+    translateX(120%);
+}
+
+.glow-btn{
+
+    animation:
+    pulseGlow 2.5s ease infinite;
+}
+
+@keyframes pulseGlow{
+
+    0%{
+
+        box-shadow:
+        0 0 10px rgba(255,182,193,.4);
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 25px rgba(255,182,193,.9),
+        0 0 45px rgba(255,182,193,.5);
+    }
+
+    100%{
+
+        box-shadow:
+        0 0 10px rgba(255,182,193,.4);
+    }
+}
+
+/* ==========================================================
+   MUSIC BUTTON
+========================================================== */
+
+.music-btn{
+
+    position:fixed;
+
+    top:18px;
+    right:18px;
+
+    width:54px;
+    height:54px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    z-index:9999;
+
+    color:white;
+
+    font-size:1.2rem;
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(12px);
+
+    box-shadow:
+    var(--shadow-cyan);
+
+    transition:
+    all .3s ease;
+}
+
+.music-btn:hover{
+
+    transform:
+    scale(1.08);
+}
+
+/* ==========================================================
+   DOOR SCREEN
+========================================================== */
+
+.door-glow{
+
+    font-size:
+    clamp(
+        5rem,
+        12vw,
+        9rem
+    );
+
+    animation:
+    doorPulse 2s ease-in-out infinite;
+
+    filter:
+    drop-shadow(
+        0 0 25px rgba(
+            0,
+            255,
+            255,
+            .8
+        )
+    );
+}
+
+@keyframes doorPulse{
+
+    0%{
+
+        transform:
+        scale(1);
+    }
+
+    50%{
+
+        transform:
+        scale(1.08);
+    }
+
+    100%{
+
+        transform:
+        scale(1);
+    }
+}
+
+.arrow-down{
+
+    font-size:2rem;
+
+    color:var(--cyan);
+
+    animation:
+    arrowBounce 1.5s infinite;
+
+    text-shadow:
+    0 0 12px rgba(
+        0,
+        255,
+        255,
+        .8
+    );
+}
+
+@keyframes arrowBounce{
+
+    0%{
+
+        transform:
+        translateY(0);
+    }
+
+    50%{
+
+        transform:
+        translateY(10px);
+    }
+
+    100%{
+
+        transform:
+        translateY(0);
+    }
+}
+
+/* ==========================================================
+   LETTER CARD
+========================================================== */
+
+.letter-card{
+
+    width:100%;
+
+    max-width:650px;
+
+    padding:
+    24px;
+
+    border-radius:24px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:
+    blur(12px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .1
+    );
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    box-shadow:
+    0 0 25px rgba(
+        255,
+        255,
+        255,
+        .05
+    );
+}
+
+/* ==========================================================
+   HIDDEN STAR BUTTON
+========================================================== */
+
+.hidden-trigger{
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:1.7rem;
+
+    animation:
+    starBlink 1.5s infinite;
+}
+
+@keyframes starBlink{
+
+    0%{
+
+        opacity:.4;
+    }
+
+    50%{
+
+        opacity:1;
+    }
+
+    100%{
+
+        opacity:.4;
+    }
+}
+
+/* ==========================================================
+   END OF STYLE.CSS PART 2
+   PART 3 STARTS WITH:
+   - SOLUTION CARDS
+   - POPUPS
+   - ENVELOPES
+   - FLOATING MESSAGES
+   - COMIC STRIP
+========================================================== */
+/* ==========================================================
+   STYLE.CSS — PART 3
+   Solution Cards + Popups + Envelope + Comic Strip
+   Continue directly below Part 2
+========================================================== */
+
+/* ==========================================================
+   SOLUTION CARDS
+========================================================== */
+
+.solution-card{
+
+    width:100%;
+    max-width:680px;
+
+    padding:24px;
+
+    border-radius:24px;
+
+    background:
+    rgba(255,255,255,.06);
+
+    backdrop-filter:
+    blur(14px);
+
+    border:2px solid;
+
+    transition:
+    all .4s ease;
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,.08);
+}
+
+.solution-card h3{
+
+    font-family:
+    "Dancing Script",
+    cursive;
+
+    font-size:
+    clamp(
+        1.8rem,
+        4vw,
+        2.5rem
+    );
+
+    margin-bottom:12px;
+}
+
+.solution-card p{
+
+    color:var(--text-soft);
+}
+
+.solution-card.cyan{
+
+    border-color:var(--cyan);
+
+    box-shadow:
+    var(--shadow-cyan);
+}
+
+.solution-card.lavender{
+
+    border-color:var(--lavender);
+
+    box-shadow:
+    var(--shadow-lavender);
+}
+
+.solution-card.mint{
+
+    border-color:var(--mint);
+
+    box-shadow:
+    var(--shadow-mint);
+}
+
+.solution-card:hover{
+
+    transform:
+    translateY(-5px);
+}
+
+/* ==========================================================
+   POPUP SYSTEM
+========================================================== */
+
+.popup-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.75);
+
+    backdrop-filter:
+    blur(12px);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+    all .4s ease;
+
+    z-index:5000;
+
+    padding:20px;
+}
+
+.popup-overlay.show{
+
+    opacity:1;
+    visibility:visible;
+}
+
+.popup-card{
+
+    width:100%;
+    max-width:650px;
+
+    padding:30px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,.04)
+    );
+
+    backdrop-filter:
+    blur(18px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .15
+    );
+
+    box-shadow:
+    0 0 40px rgba(
+        255,
+        182,
+        193,
+        .2
+    );
+
+    text-align:center;
+
+    position:relative;
+
+    transform:
+    scale(.85);
+
+    transition:
+    all .4s ease;
+}
+
+.popup-overlay.show .popup-card{
+
+    transform:
+    scale(1);
+}
+
+.popup-card h2{
+
+    font-family:
+    "Dancing Script",
+    cursive;
+
+    font-size:
+    clamp(
+        2rem,
+        5vw,
+        3rem
+    );
+
+    margin-bottom:15px;
+
+    color:var(--pink);
+
+    text-shadow:
+    0 0 12px rgba(
+        255,
+        182,
+        193,
+        .7
+    );
+}
+
+.popup-card p{
+
+    line-height:1.9;
+
+    color:white;
+}
+
+.close-popup{
+
+    position:absolute;
+
+    top:14px;
+    right:14px;
+
+    width:38px;
+    height:38px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.12);
+
+    transition:
+    .3s ease;
+}
+
+.close-popup:hover{
+
+    transform:
+    rotate(90deg)
+    scale(1.08);
+}
+
+/* ==========================================================
+   ENVELOPE
+========================================================== */
+
+.envelope-section{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.envelope{
+
+    width:130px;
+    height:130px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:3rem;
+
+    cursor:pointer;
+
+    border-radius:24px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(12px);
+
+    border:
+    2px solid rgba(
+        255,
+        255,
+        255,
+        .12
+    );
+
+    box-shadow:
+    var(--shadow-cyan);
+
+    transition:
+    all .5s ease;
+}
+
+.envelope:hover{
+
+    transform:
+    scale(1.08)
+    rotate(-5deg);
+}
+
+.envelope.open{
+
+    transform:
+    rotateX(180deg)
+    scale(1.05);
+}
+
+/* ==========================================================
+   FINAL ENVELOPE
+========================================================== */
+
+.final-envelope{
+
+    width:150px;
+    height:150px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:4rem;
+
+    cursor:pointer;
+
+    margin-top:20px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.15);
+
+    backdrop-filter:
+    blur(16px);
+
+    box-shadow:
+    var(--shadow-pink);
+
+    transition:
+    all .4s ease;
+}
+
+.final-envelope:hover{
+
+    transform:
+    scale(1.08)
+    rotate(5deg);
+}
+
+/* ==========================================================
+   FLOATING MESSAGE
+========================================================== */
+
+.floating-message{
+
+    font-size:1rem;
+
+    color:var(--cyan-soft);
+
+    font-weight:500;
+
+    text-shadow:
+    0 0 10px rgba(
+        0,
+        255,
+        255,
+        .5
+    );
+
+    animation:
+    driftMessage 10s linear infinite;
+}
+
+@keyframes driftMessage{
+
+    0%{
+
+        transform:
+        translateX(-40px);
+    }
+
+    50%{
+
+        transform:
+        translateX(40px);
+    }
+
+    100%{
+
+        transform:
+        translateX(-40px);
+    }
+}
+
+/* ==========================================================
+   COMIC STRIP
+========================================================== */
+
+.comic-strip{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        3,
+        1fr
+    );
+
+    gap:15px;
+
+    margin-top:10px;
+}
+
+.comic-card{
+
+    padding:18px;
+
+    border-radius:22px;
+
+    background:
+    rgba(255,255,255,.06);
+
+    backdrop-filter:
+    blur(10px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .12
+    );
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:2rem;
+
+    transition:
+    all .3s ease;
+}
+
+.comic-card:hover{
+
+    transform:
+    translateY(-6px);
+
+    box-shadow:
+    0 0 25px rgba(
+        255,
+        182,
+        193,
+        .15
+    );
+}
+
+.comic-card span{
+
+    font-size:.9rem;
+
+    line-height:1.6;
+
+    color:white;
+}
+
+/* ==========================================================
+   FINAL LETTER CARD
+========================================================== */
+
+.final-card{
+
+    max-width:700px;
+}
+
+.final-card h3{
+
+    margin-top:20px;
+
+    font-family:
+    "Dancing Script",
+    cursive;
+
+    font-size:2rem;
+
+    color:var(--pink);
+}
+
+/* ==========================================================
+   END OF STYLE.CSS PART 3
+   PART 4 STARTS WITH:
+   - FLIP CARDS
+   - FORGIVE METER
+   - CELEBRATION SCREEN
+   - HEART BURSTS
+   - CONFETTI EFFECTS
+========================================================== */
+/* ==========================================================
+   STYLE.CSS — PART 4
+   Flip Cards + Forgive Meter + Celebration
+   Continue directly below Part 3
+========================================================== */
+
+/* ==========================================================
+   FLIP CARD SECTION
+========================================================== */
+
+.flip-card-grid{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(180px,1fr)
+    );
+
+    gap:18px;
+
+    margin-top:15px;
+}
+
+.flip-card{
+
+    width:100%;
+
+    min-height:220px;
+
+    perspective:1200px;
+}
+
+.flip-card-inner{
+
+    position:relative;
+
+    width:100%;
+    height:220px;
+
+    transition:
+    transform .8s ease;
+
+    transform-style:
+    preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner{
+
+    transform:
+    rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:24px;
+
+    backface-visibility:hidden;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+.flip-card-front{
+
+    flex-direction:column;
+
+    font-family:
+    "Dancing Script",
+    cursive;
+
+    font-size:1.8rem;
+
+    color:white;
+}
+
+.flip-card-back{
+
+    transform:
+    rotateY(180deg);
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(12px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .15
+    );
+
+    line-height:1.8;
+}
+
+/* ==========================================================
+   CARD COLORS
+========================================================== */
+
+.pink{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffb6c1,
+        #ff8eb0
+    );
+
+    box-shadow:
+    var(--shadow-pink);
+}
+
+.cyan{
+
+    background:
+    linear-gradient(
+        135deg,
+        #00ffff,
+        #4cefff
+    );
+
+    color:#08131f;
+
+    box-shadow:
+    var(--shadow-cyan);
+}
+
+.lavender{
+
+    background:
+    linear-gradient(
+        135deg,
+        #e6ccff,
+        #d6b5ff
+    );
+
+    color:#241a4a;
+
+    box-shadow:
+    var(--shadow-lavender);
+}
+
+.mint{
+
+    background:
+    linear-gradient(
+        135deg,
+        #b5ead7,
+        #8fe0c2
+    );
+
+    color:#08131f;
+
+    box-shadow:
+    var(--shadow-mint);
+}
+
+.white-glow{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff,
+        #f4f4f4
+    );
+
+    color:#222;
+
+    box-shadow:
+    0 0 30px rgba(
+        255,
+        255,
+        255,
+        .7
+    );
+}
+
+/* ==========================================================
+   FORGIVE METER
+========================================================== */
+
+.meter-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.meter{
+
+    width:80px;
+    height:320px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    2px solid rgba(
+        255,
+        255,
+        255,
+        .15
+    );
+
+    box-shadow:
+    0 0 30px rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+}
+
+.meter-fill{
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+
+    height:0%;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        to top,
+        #ff7da6,
+        #ffb6c1,
+        #ffffff
+    );
+
+    transition:
+    height .6s ease;
+}
+
+.meter-percent{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--pink);
+
+    text-shadow:
+    0 0 15px rgba(
+        255,
+        182,
+        193,
+        .8
+    );
+}
+
+.meter-message{
+
+    max-width:500px;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+}
+
+.forgive-btn{
+
+    margin-top:10px;
+}
+
+.hidden-celebration-btn{
+
+    display:none;
+}
+
+/* ==========================================================
+   CELEBRATION SCREEN
+========================================================== */
+
+.phase-celebration{
+
+    overflow:hidden;
+}
+
+.celebration-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+    animation:
+    celebrationAppear 1s ease;
+}
+
+.celebration-box h1{
+
+    font-family:
+    "Dancing Script",
+    cursive;
+
+    font-size:
+    clamp(
+        3rem,
+        8vw,
+        5rem
+    );
+
+    color:white;
+
+    text-shadow:
+    0 0 25px rgba(
+        255,
+        255,
+        255,
+        .9
+    );
+}
+
+.celebration-box p{
+
+    max-width:650px;
+
+    color:#ffffff;
+
+    font-size:1.1rem;
+
+    line-height:1.9;
+}
+
+@keyframes celebrationAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(.8)
+        translateY(20px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1)
+        translateY(0);
+    }
+}
+
+/* ==========================================================
+   CELEBRATION GIFS
+========================================================== */
+
+.gif-love{
+
+    width:min(
+        260px,
+        70vw
+    );
+
+    border-radius:24px;
+
+    box-shadow:
+    var(--shadow-pink);
+}
+
+.gif-corner{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    width:120px;
+
+    border-radius:18px;
+
+    z-index:2;
+}
+
+/* ==========================================================
+   HEART POP EFFECT
+========================================================== */
+
+.heart-pop{
+
+    position:fixed;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+    animation:
+    heartFly 2s ease forwards;
+}
+
+@keyframes heartFly{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(.8);
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        translateY(-220px)
+        scale(1.8);
+    }
+}
+
+/* ==========================================================
+   FLOATING HEARTS
+========================================================== */
+
+.floating-heart{
+
+    position:fixed;
+
+    z-index:999;
+
+    pointer-events:none;
+
+    animation:
+    floatingHeart 3s ease forwards;
+}
+
+@keyframes floatingHeart{
+
+    from{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(.8);
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:
+        translateY(-180px)
+        scale(1.6);
+    }
+}
+
+/* ==========================================================
+   CORNER CELEBRATION GIFS
+========================================================== */
+
+.corner-gif{
+
+    position:absolute;
+
+    width:120px;
+
+    border-radius:18px;
+
+    box-shadow:
+    var(--shadow-pink);
+
+    z-index:3;
+}
+
+/* ==========================================================
+   CELEBRATION MODE
+========================================================== */
+
+body.celebration-mode{
+
+    overflow:hidden;
+}
+
+/* ==========================================================
+   END OF STYLE.CSS PART 4
+   PART 5 STARTS WITH:
+   - PHASE DOTS
+   - MOBILE RESPONSIVE
+   - TABLET RESPONSIVE
+   - UTILITIES
+   - FINAL FILE CLOSING
+========================================================== */
+/* ==========================================================
+   STYLE.CSS — PART 5
+   Phase Dots + Responsive Design + Utilities
+   FINAL PART
+   Continue directly below Part 4
+========================================================== */
+
+/* ==========================================================
+   PHASE DOTS
+========================================================== */
+
+.phase-dots{
+
+    position:fixed;
+
+    left:50%;
+    bottom:18px;
+
+    transform:
+    translateX(-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    z-index:9999;
+
+    padding:
+    10px 16px;
+
+    border-radius:999px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:
+    blur(12px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+}
+
+.dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:
+    rgba(
+        255,
+        255,
+        255,
+        .25
+    );
+
+    transition:
+    all .4s ease;
+}
+
+.dot.active{
+
+    background:
+    var(--pink);
+
+    transform:
+    scale(1.4);
+
+    box-shadow:
+    0 0 12px rgba(
+        255,
+        182,
+        193,
+        .9
+    );
+}
+
+/* ==========================================================
+   PHASE ANIMATIONS
+========================================================== */
+
+.fade-up{
+
+    animation:
+    fadeUp .8s ease forwards;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(25px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+    }
+}
+
+.fade-scale{
+
+    animation:
+    fadeScale .8s ease forwards;
+}
+
+@keyframes fadeScale{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(.92);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1);
+    }
+}
+
+.fade-left{
+
+    animation:
+    fadeLeft .8s ease forwards;
+}
+
+@keyframes fadeLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateX(-25px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateX(0);
+    }
+}
+
+.fade-right{
+
+    animation:
+    fadeRight .8s ease forwards;
+}
+
+@keyframes fadeRight{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateX(25px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateX(0);
+    }
+}
+
+/* ==========================================================
+   UTILITIES
+========================================================== */
+
+.hidden{
+
+    display:none !important;
+}
+
+.center{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.text-pink{
+
+    color:var(--pink);
+}
+
+.text-cyan{
+
+    color:var(--cyan);
+}
+
+.text-lavender{
+
+    color:var(--lavender);
+}
+
+.text-mint{
+
+    color:var(--mint);
+}
+
+.glow-pink{
+
+    box-shadow:
+    var(--shadow-pink);
+}
+
+.glow-cyan{
+
+    box-shadow:
+    var(--shadow-cyan);
+}
+
+.glow-lavender{
+
+    box-shadow:
+    var(--shadow-lavender);
+}
+
+.glow-mint{
+
+    box-shadow:
+    var(--shadow-mint);
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:0;
+    height:0;
+}
+
+/* ==========================================================
+   TABLET RESPONSIVE
+========================================================== */
+
+@media (max-width:900px){
+
+    .phase-content{
+
+        max-width:95%;
+    }
+
+    .comic-strip{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .flip-card-grid{
+
+        grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+    }
+
+    .meter{
+
+        height:260px;
+    }
+
+    .gif-corner{
+
+        width:95px;
+    }
+
+    .popup-card{
+
+        padding:24px;
+    }
+}
+
+/* ==========================================================
+   MOBILE RESPONSIVE
+========================================================== */
+
+@media (max-width:600px){
+
+    .phase{
+
+        padding:
+        18px;
+    }
+
+    .main-title{
+
+        font-size:2.5rem;
+    }
+
+    .phase-title{
+
+        font-size:2rem;
+    }
+
+    .main-subtitle{
+
+        font-size:.95rem;
+    }
+
+    .letter-card{
+
+        padding:18px;
+    }
+
+    .solution-card{
+
+        padding:18px;
+    }
+
+    .popup-card{
+
+        padding:20px;
+    }
+
+    .gif-large{
+
+        width:220px;
+    }
+
+    .gif-medium{
+
+        width:180px;
+    }
+
+    .gif-small{
+
+        width:130px;
+    }
+
+    .flip-card-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .flip-card-inner{
+
+        height:200px;
+    }
+
+    .meter{
+
+        width:70px;
+        height:220px;
+    }
+
+    .meter-percent{
+
+        font-size:1.6rem;
+    }
+
+    .meter-message{
+
+        font-size:.95rem;
+    }
+
+    .glow-btn{
+
+        width:100%;
+
+        max-width:320px;
+
+        font-size:.95rem;
+
+        padding:
+        14px 18px;
+    }
+
+    .music-btn{
+
+        width:48px;
+        height:48px;
+
+        top:14px;
+        right:14px;
+    }
+
+    .phase-dots{
+
+        gap:8px;
+
+        padding:
+        8px 12px;
+
+        bottom:12px;
+    }
+
+    .dot{
+
+        width:8px;
+        height:8px;
+    }
+
+    .gif-corner{
+
+        width:80px;
+
+        top:12px;
+        right:12px;
+    }
+
+    .final-envelope{
+
+        width:120px;
+        height:120px;
+
+        font-size:3rem;
+    }
+
+    .celebration-box h1{
+
+        font-size:2.8rem;
+    }
+
+    .celebration-box p{
+
+        font-size:.95rem;
+    }
+}
+
+/* ==========================================================
+   SMALL PHONES
+========================================================== */
+
+@media (max-width:380px){
+
+    .phase-title{
+
+        font-size:1.7rem;
+    }
+
+    .main-title{
+
+        font-size:2.1rem;
+    }
+
+    .letter-card p,
+    .popup-card p,
+    .solution-card p{
+
+        font-size:.9rem;
+    }
+
+    .meter{
+
+        height:200px;
+    }
+
+    .gif-large{
+
+        width:190px;
+    }
+
+    .gif-medium{
+
+        width:150px;
+    }
+
+    .gif-small{
+
+        width:110px;
+    }
+}
+
+/* ==========================================================
+   LANDSCAPE PHONE FIX
+========================================================== */
+
+@media (max-height:500px){
+
+    .phase-content{
+
+        transform:
+        scale(.82);
+    }
+
+    .phase-dots{
+
+        bottom:6px;
+    }
+
+    .meter{
+
+        height:160px;
+    }
+}
+
+/* ==========================================================
+   FINAL SAFETY RULES
+========================================================== */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+}
+
+button{
+
+    -webkit-tap-highlight-color:
+    transparent;
+}
+
+body,
+html{
+
+    touch-action:
+    manipulation;
+}
+
+/* ==========================================================
+   END OF STYLE.CSS
+   COMPLETE FILE FINISHED ✅
+========================================================== */
